@@ -52,7 +52,7 @@ contract Pair is ERC20 {
         ethReserve = address(this).balance;
     }
 
-    function addLiquidity(uint256 inputTokenAmount uint) public payable returns (uint256 lpTokenAmount){
+    function addLiquidity(uint256 inputTokenAmount ) public payable returns (uint256 lpTokenAmount){
         (uint256 tokenReserve, uint256 ethReserve) = getReserves();
 
         // uint256 requiredTokenInput = msg.value * tokenReserve/ethReserve; //calculate the amount of tokenInput required to ensure the ratio is the same
