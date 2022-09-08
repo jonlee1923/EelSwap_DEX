@@ -1,0 +1,71 @@
+{
+	"id": "9e4bf64a642cce2b2dc4a735c156b918",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.7",
+	"solcLongVersion": "0.8.7+commit.e28d00a7",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/Pair.sol": {
+				"content": "// //SPDX-License-Identifier: MIT\r\n// pragma solidity ^0.8.7;\r\n\r\n// // Pair contract is essentially ERC20 and IERC20 is the interface contract \r\n// // that will be used to interact with other ERC20 contracts if need be\r\n// import \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\r\n// import \"@openzeppelin/contracts/token/ERC20/IERC20.sol\";\r\n\r\n\r\n// // This interface is added to be able to interact with other exchanges \r\n// // It allows us to call the functions listed\r\n// interface IPair{\r\n\r\n//     //Defined as external payable to allow the function to accept value\r\n//     function ethToTokenSwap(uint256 expectedTokenAmount) external payable;\r\n//     function ethToTokenTransfer(uint256 expectedTokenAmount, address recipient) external payable;\r\n// }\r\n\r\n// interface IFactory {\r\n//     function getExchange(address tokenAddress) external returns (address);\r\n// }\r\n\r\n// contract Pair is ERC20 {\r\n//     address public tokenAddress;\r\n//     address public factoryAddress;\r\n\r\n//     // The indexed keyword allows us to search for these events using indexed parameters as filters\r\n//     event SwapForTokens(address indexed buyer, uint256 indexed ethGiven, uint256 tokensRecieved);\r\n//     event SwapForEth(address indexed buyer, uint256 indexed tokensGiven, uint256 ethRecieved);\r\n//     event AddLiquidity(\r\n//         address indexed provider,\r\n//         uint256 indexed ethAmount,\r\n//         uint256 indexed tokenAmount\r\n//     );\r\n//     event RemoveLiquidity(\r\n//         address indexed provider,\r\n//         uint256 indexed ethAmount,\r\n//         uint256 indexed tokenAmount\r\n//     );\r\n\r\n//     uint constant txFee = 0;\r\n\r\n//     // constructor takes in a parameter for the address of the token, for this pair contract\r\n//     constructor(address token) ERC20(\"Swap V1\", \"Swap-V1\"){\r\n//         require(token != address(0), \"Invalid address\");\r\n//         tokenAddress = token;\r\n//         factoryAddress = msg.sender;\r\n//     }\r\n\r\n//     function getReserves() public view returns (uint256 tokenReserve, uint256 ethReserve) {\r\n//         tokenReserve = IERC20(tokenAddress).balanceOf(address(this));\r\n//         ethReserve = address(this).balance;\r\n//     }\r\n\r\n//     function addLiquidity(uint256 inputTokenAmount ) public payable returns (uint256 lpTokenAmount){\r\n//         (uint256 tokenReserve, uint256 ethReserve) = getReserves();\r\n\r\n//         // uint256 requiredTokenInput = msg.value * tokenReserve/ethReserve; //calculate the amount of tokenInput required to ensure the ratio is the same\r\n        \r\n//         //New liquidity pool\r\n//         if (tokenReserve == 0) {\r\n//             IERC20 token = IERC20(tokenAddress);\r\n//             token.transferFrom(msg.sender, address(this), inputTokenAmount);\r\n//             lpTokenAmount = ethReserve; \r\n//         }\r\n//         //Existing liquidity pool\r\n//         else{\r\n//             ethReserve -= msg.value; //This is done as the msg.value has already been added to the ethReserve\r\n//             uint256 requiredTokenInput = msg.value * tokenReserve/ethReserve; //calculate the amount of tokenInput required to ensure the ratio is the same\r\n//             require(inputTokenAmount >= requiredTokenInput, \"Insufficient input amount of ERC20 Tokens\");\r\n//             IERC20 token = IERC20(tokenAddress);\r\n//             token.transferFrom(msg.sender, address(this), inputTokenAmount);\r\n//             lpTokenAmount = (totalSupply() * msg.value) / ethReserve;\r\n//         }\r\n\r\n//         _mint(msg.sender, lpTokenAmount);\r\n//         emit AddLiquidity(msg.sender, msg.value, inputTokenAmount);\r\n//     }\r\n\r\n//     function removeLiquidity(uint256 lpTokenAmount) public returns (uint256 ethAmount, uint256 tokenAmount){\r\n//         require(lpTokenAmount > 0, \"Please input a valid amount of LP Tokens to burn/redeem\");\r\n\r\n//         (uint256 tokenReserve, uint256 ethReserve) = getReserves();\r\n//         ethAmount = (ethReserve * lpTokenAmount) / totalSupply();\r\n//         tokenAmount = (tokenReserve * lpTokenAmount) / totalSupply();\r\n\r\n//         _burn(msg.sender, lpTokenAmount);\r\n//         (bool sent, ) = (msg.sender).call{value: ethAmount}(\"\");\r\n//         require(sent, \"Transaction of Ether was unsuccessful\");\r\n//         IERC20(tokenAddress).transfer(msg.sender, tokenAmount);\r\n//         emit RemoveLiquidity(msg.sender, ethAmount, tokenAmount);\r\n//     }\r\n\r\n//     function getOutputAmount(uint256 ipAmount, uint256 ipReserve, uint256 opReserve) private pure returns (uint256 opAmount) {\r\n//         require(ipReserve > 0 && opReserve > 0, \"There are no reserves\");\r\n//         uint256 ipAmountPlusFee = ipAmount * (1000 - txFee);\r\n//         opAmount = ipAmountPlusFee * opReserve / (1000 * ipReserve + ipAmountPlusFee);\r\n//     }\r\n\r\n//     //Use this function to get the exchange amount\r\n//     function getTokenAmountForSwap(uint256 ethAmount) public view returns (uint256 tokenAmount){\r\n//         require(ethAmount > 0, \"ETH amount cannot be zero\");\r\n\r\n//         (uint256 tokenReserve, uint256 ethReserve) = getReserves();\r\n//         //Amount of ETH in exchange for tokens\r\n//         tokenAmount = getOutputAmount(ethAmount, ethReserve, tokenReserve);\r\n//     }\r\n\r\n//     //Use this function to get the exchange amount\r\n//     function getEthAmountForSwap(uint256 tokenAmount) public view returns (uint256 ethAmount){\r\n//         require(ethAmount > 0, \"ETH amount cannot be zero\");\r\n\r\n//         (uint256 tokenReserve, uint256 ethReserve) = getReserves();\r\n//         //Amount of ETH in exchange for tokens\r\n//         ethAmount = getOutputAmount(tokenAmount, tokenReserve, ethReserve);\r\n//     }\r\n\r\n//     //Base function to be called by other functions\r\n//     function ethForTokenBasic(uint256 tokenAmount, address recipient) private {\r\n//         (uint256 tokenReserve, uint256 ethReserve) = getReserves();\r\n//         uint256 tokensRecieved = getOutputAmount(msg.value, ethReserve - msg.value, tokenReserve);\r\n\r\n//         require(tokensRecieved >= tokenAmount, \"Amount swapped does not meet your stipulated amount, reverting swap\");\r\n\r\n//         IERC20(tokenAddress).transfer(recipient, tokensRecieved);\r\n//         emit SwapForTokens(recipient, msg.value, tokensRecieved);\r\n//     }\r\n\r\n//     //Can be used to swap for oneself and also to maybe swap and pay others\r\n//     function ethToTokenTransfer(uint256 tokenAmount, address recipient) public payable{\r\n//         ethForTokenBasic(tokenAmount, recipient);\r\n//     }\r\n\r\n//     //used for implicit calling\r\n//     function ethToTokenSwap(uint256 tokenAmount) public payable {\r\n//         ethForTokenBasic(tokenAmount, msg.sender);\r\n//     }\r\n\r\n//     //\r\n//     function tokenForEthSwap(uint256 ipTokenAmount, uint256 opEthAmount) public {\r\n//         (uint256 tokenReserve, uint256 ethReserve) = getReserves();\r\n\r\n//         uint256 ethRecieved = getOutputAmount(ipTokenAmount, tokenReserve, ethReserve);\r\n\r\n//         require(ethRecieved >= opEthAmount, \"Amount swapped does not meet your stipulated amount, reverting swap\");\r\n//         IERC20(tokenAddress).transferFrom(msg.sender, address(this), ipTokenAmount);\r\n//         (bool sent, ) = (msg.sender).call{value: opEthAmount}(\"\");\r\n//         require(sent, \"Transaction of ETH to recipient failed\");\r\n//         emit SwapForEth(msg.sender, ipTokenAmount, ethRecieved);\r\n//     }\r\n\r\n\r\n//     function tokenToTokenSwap(uint256 ipTokenAmount, uint256 opTokenAmount, address opTokenAddress) public {\r\n//         require(opTokenAddress != address(0), \"Token address is invalid\");\r\n//         require(ipTokenAmount > 0, \"Invalid input token amount\");\r\n//         address opTokenExchangeAddress = IFactory(factoryAddress).getExchange(opTokenAddress);\r\n\r\n//         require(opTokenExchangeAddress != address(this) && opTokenExchangeAddress != address(0),\"Invalid exchange address\");\r\n\r\n//         (uint256 tokenReserve, uint256 ethReserve) = getReserves();\r\n        \r\n//         uint256 ethAmount = getOutputAmount(ipTokenAmount, tokenReserve, ethReserve);\r\n//         IERC20(tokenAddress).transferFrom(msg.sender, address(this), ipTokenAmount);\r\n//         IPair(opTokenExchangeAddress).ethToTokenTransfer{value: ethAmount}(opTokenAmount, msg.sender);\r\n\r\n//     }\r\n\r\n\r\n\r\n\r\n// }\r\n\r\n"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			}
+		}
+	},
+	"output": {
+		"errors": [
+			{
+				"component": "general",
+				"errorCode": "3420",
+				"formattedMessage": "Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.7;\"\n--> contracts/Pair.sol\n\n",
+				"message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.7;\"",
+				"severity": "warning",
+				"sourceLocation": {
+					"end": -1,
+					"file": "contracts/Pair.sol",
+					"start": -1
+				},
+				"type": "Warning"
+			}
+		],
+		"sources": {
+			"contracts/Pair.sol": {
+				"ast": {
+					"absolutePath": "contracts/Pair.sol",
+					"exportedSymbols": {},
+					"id": 1,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [],
+					"src": "8186:0:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

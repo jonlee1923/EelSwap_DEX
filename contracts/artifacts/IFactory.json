@@ -53,7 +53,7 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"getExchange(address)": "06f2bf62"
+			"getPair(address)": "1a788a02"
 		}
 	},
 	"abi": [
@@ -65,7 +65,7 @@
 					"type": "address"
 				}
 			],
-			"name": "getExchange",
+			"name": "getPair",
 			"outputs": [
 				{
 					"internalType": "address",

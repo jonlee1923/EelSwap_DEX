@@ -13,7 +13,7 @@
 						"type": "address"
 					}
 				],
-				"name": "getExchange",
+				"name": "getPair",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -85,11 +85,11 @@
 			]
 		},
 		"contracts/Pair.sol": {
-			"keccak256": "0xbc995aa1e4d2a7b527bb80861fb3bb092d02b471b0518f3c1aa934913692244d",
+			"keccak256": "0xda814a80e6c60b37475a264d6426f45ec417bd4e8a3b31e075ebef557d097bd0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4a0df74b530200f77501a56202e62313fb6ea5a7793b8b711b1786a74d9bfbdf",
-				"dweb:/ipfs/Qmc1RhtrYBUCU2h5eb8kaEiF9ZyBwbfKeGEx7bYhicKdwr"
+				"bzz-raw://ef50f331ac220e57682ce934e96f1611c0fc8f7586624bf111f228e68cb51788",
+				"dweb:/ipfs/QmXqMWxgUt3QakjGfQb4uubpSdt8MLF94idruGBtEDtXqB"
 			]
 		}
 	},

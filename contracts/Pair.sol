@@ -17,7 +17,7 @@ interface IPair{
 }
 
 interface IFactory {
-    function getExchange(address tokenAddress) external returns (address);
+    function getPair(address tokenAddress) external returns (address);
 }
 
 contract Pair is ERC20 {
@@ -127,12 +127,12 @@ contract Pair is ERC20 {
     }
 
     //Can be used to swap for oneself and also to maybe swap and pay others
-    function ethForTokenHigh(uint256 tokenAmount, address recipient) public payable{
+    function ethToTokenTransfer(uint256 tokenAmount, address recipient) public payable{
         ethForTokenBasic(tokenAmount, recipient);
     }
 
     //used for implicit calling
-    function ethForTokenImplicit(uint256 tokenAmount) public payable {
+    function ethToTokenSwap(uint256 tokenAmount) public payable {
         ethForTokenBasic(tokenAmount, msg.sender);
     }
 
@@ -150,19 +150,40 @@ contract Pair is ERC20 {
     }
 
 
-    function tokenToTokenSwap(uint256 ipTokenAmount, uint256 opTokenAmount, address opTokenAddress) public {
+    // function tokenToTokenSwap(uint256 ipTokenAmount, uint256 opTokenAmount, address opTokenAddress) public {
+    //     require(opTokenAddress != address(0), "Token address is invalid");
+    //     require(ipTokenAmount > 0, "Invalid input token amount");
+    //     address opTokenExchangeAddress = IFactory(factoryAddress).getExchange(opTokenAddress);
+
+    //     require(opTokenExchangeAddress != address(this) && opTokenExchangeAddress != address(0),"Invalid exchange address");
+
+    //     (uint256 tokenReserve, uint256 ethReserve) = getReserves();
+        
+    //     uint256 ethAmount = getOutputAmount(ipTokenAmount, tokenReserve, ethReserve);
+    //     IERC20(tokenAddress).transferFrom(msg.sender, address(this), ipTokenAmount);
+    //     IPair(opTokenExchangeAddress).ethToTokenTransfer{value: ethAmount}(opTokenAmount, msg.sender);
+
+    // }
+    function tokenToTokenSwap(uint256 ipTokenAmount, uint256 opTokenAmount, address opTokenAddress
+    ) public {
         require(opTokenAddress != address(0), "Token address is invalid");
         require(ipTokenAmount > 0, "Invalid input token amount");
-        address opTokenExchangeAddress = IFactory(factoryAddress).getExchange(opTokenAddress);
-
-        require(opTokenExchangeAddress != address(this) && opTokenExchangeAddress != address(0),"Invalid exchange address");
+        address targetExchangeAddress = IFactory(factoryAddress).getPair(opTokenAddress);
+        require(
+            targetExchangeAddress != address(this) && targetExchangeAddress != address(0),
+            "Exchange address not valid"
+        );
 
         (uint256 tokenReserve, uint256 ethReserve) = getReserves();
-        
         uint256 ethAmount = getOutputAmount(ipTokenAmount, tokenReserve, ethReserve);
-        IERC20(tokenAddress).transferFrom(msg.sender, address(this), ipTokenAmount);
-        IPair(opTokenExchangeAddress).ethToTokenTransfer{value: ethAmount}(opTokenAmount, msg.sender);
 
+        IERC20(tokenAddress).transferFrom(msg.sender, address(this), ipTokenAmount);
+        IPair(targetExchangeAddress).ethToTokenTransfer{value: ethAmount}(opTokenAmount,msg.sender);
     }
+
+
+
+
+
 }
 

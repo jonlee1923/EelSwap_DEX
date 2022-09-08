@@ -45,12 +45,13 @@
 		"userdoc": {
 			"kind": "user",
 			"methods": {},
+			"notice": "THIS IS AN EXAMPLE CONTRACT WHICH IS NOT AUDITED PLEASE DO NOT USE THIS CODE IN PRODUCTION.",
 			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Exchange.sol": "IExchange"
+			"contracts/Pair.sol": "IExchange"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -96,12 +97,12 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
-		"contracts/Exchange.sol": {
-			"keccak256": "0x676c81f6c28093e1da86a07db980534fa04ffc2d7d8a0eb03c74bdf8e2aeefb7",
+		"contracts/Pair.sol": {
+			"keccak256": "0x8a7cdb590ff6461692291f5402632e51644715de0b87e0aaec4fcf99af5f2137",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://01ed6cdab7e17aa0560a7e7dcf514c63a4781a6a4ca20e5d57f68db0a57dd90f",
-				"dweb:/ipfs/QmSzniqV6sRpWcuFP2EQwKhnfPXf5EH5NwHbgde3RSSR78"
+				"bzz-raw://cf6b35a07ffdeb07cade4ed2f7afe2e4653ce24ab5bc46a68e41b0980b5bb210",
+				"dweb:/ipfs/QmfNcqMpu2gJ2cB8RxQ1j4bQcfVja8rNdSxri9vYhFAmYo"
 			]
 		}
 	},
