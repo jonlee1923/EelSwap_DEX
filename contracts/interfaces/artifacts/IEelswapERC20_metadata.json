@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.5.17+commit.d19bba13"
 	},
 	"language": "Solidity",
 	"output": {
@@ -56,6 +56,7 @@
 				"type": "event"
 			},
 			{
+				"constant": true,
 				"inputs": [
 					{
 						"internalType": "address",
@@ -76,10 +77,12 @@
 						"type": "uint256"
 					}
 				],
+				"payable": false,
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
+				"constant": false,
 				"inputs": [
 					{
 						"internalType": "address",
@@ -100,10 +103,12 @@
 						"type": "bool"
 					}
 				],
+				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
+				"constant": true,
 				"inputs": [
 					{
 						"internalType": "address",
@@ -119,10 +124,12 @@
 						"type": "uint256"
 					}
 				],
+				"payable": false,
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
+				"constant": true,
 				"inputs": [],
 				"name": "decimals",
 				"outputs": [
@@ -132,10 +139,12 @@
 						"type": "uint8"
 					}
 				],
+				"payable": false,
 				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
+				"constant": true,
 				"inputs": [],
 				"name": "name",
 				"outputs": [
@@ -145,10 +154,12 @@
 						"type": "string"
 					}
 				],
+				"payable": false,
 				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
+				"constant": true,
 				"inputs": [],
 				"name": "symbol",
 				"outputs": [
@@ -158,10 +169,12 @@
 						"type": "string"
 					}
 				],
+				"payable": false,
 				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
+				"constant": true,
 				"inputs": [],
 				"name": "totalSupply",
 				"outputs": [
@@ -171,10 +184,12 @@
 						"type": "uint256"
 					}
 				],
+				"payable": false,
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
+				"constant": false,
 				"inputs": [
 					{
 						"internalType": "address",
@@ -195,10 +210,12 @@
 						"type": "bool"
 					}
 				],
+				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
+				"constant": false,
 				"inputs": [
 					{
 						"internalType": "address",
@@ -224,19 +241,16 @@
 						"type": "bool"
 					}
 				],
+				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
 		"devdoc": {
-			"kind": "dev",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {
@@ -245,9 +259,6 @@
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
-		"metadata": {
-			"bytecodeHash": "ipfs"
-		},
 		"optimizer": {
 			"enabled": false,
 			"runs": 200
@@ -256,11 +267,10 @@
 	},
 	"sources": {
 		"contracts/interfaces/IEelswapERC20.sol": {
-			"keccak256": "0x7a244d6ce4c22ddbd07832a57eb3aa4a0e93f11c3b92501ac89b760a6516ccb1",
-			"license": "MIT",
+			"keccak256": "0x95387e562a1c1863897083880bbbd0e1c630080a02d68b57db04f6147742eaba",
 			"urls": [
-				"bzz-raw://1d3390c32667ca8f3c410b6c904b71be85fdd0967ab96d790738e852d2e41f5c",
-				"dweb:/ipfs/QmR8tJTrH9YYiycwvJBGeorZsKYpqc334V76zFwE4wUKGA"
+				"bzz-raw://cede65aabca1eb44990729d9c6af3922d89d998dbfae7c2873aca1151a1a5c5b",
+				"dweb:/ipfs/QmPi4Kop1Y2usNBhLKr4BfiJZV8fmDJvghKyvtmJuagKKQ"
 			]
 		}
 	},

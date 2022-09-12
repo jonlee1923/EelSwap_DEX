@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.8.7;
+pragma solidity ^0.5.16;
 
 // Pair contract is essentially ERC20 and IERC20 is the interface contract 
 // that will be used to interact with other ERC20 contracts if need be
