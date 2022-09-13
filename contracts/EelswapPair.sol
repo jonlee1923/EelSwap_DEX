@@ -1,11 +1,11 @@
 pragma solidity ^0.5.16;
 
 import './interfaces/IEelswapPair.sol';
-import './EelswapERC20.sol';
 import './interfaces/IEelswapFactory.sol';
 import './interfaces/IERC20.sol';
+import './EelswapERC20.sol';
 import './libraries/Math.sol';
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import './libraries/SafeMath.sol';
 
 
 contract EelswapPair is IEelswapPair, EelswapERC20{
@@ -48,7 +48,7 @@ contract EelswapPair is IEelswapPair, EelswapERC20{
 
     //updates reserves and timestamp of last transaction
     function _update(uint balance0, uint balance1, uint112 _reserve0, uint112 _reserve1) private{
-        require(balance0 <= type(uint256).max && balance1 <= type(uint256).max, "OVERFLOW");
+        require(balance0 <= uint(-1) && balance1 <= uint(-1), "OVERFLOW");
         uint32 blockTimestamp = uint32(block.timestamp % 2**32);
         // uint32 timeElapsed = blockTimestamp - blockTimestampLast;
         reserve0 = uint112(balance0);
@@ -131,7 +131,7 @@ contract EelswapPair is IEelswapPair, EelswapERC20{
         uint balance1;
 
         // These brackets apparently are to avoid stack too deep errors
-        // {
+        {
         address _token0 = token0;
         address _token1 = token1;
         require(to != _token0 && to != _token1, "INVALID_RECIEPIENT");
@@ -140,7 +140,7 @@ contract EelswapPair is IEelswapPair, EelswapERC20{
         // if(data.length > 0) 
         balance0 = IERC20(_token0).balanceOf(address(this));
         balance1 = IERC20(_token1).balanceOf(address(this));
-        // }
+        }
 
         //Sanity check to make sure we dont lose money from the swap
         //If value was indeed xfer'd out then balance = reserve - amountOut and therefore 

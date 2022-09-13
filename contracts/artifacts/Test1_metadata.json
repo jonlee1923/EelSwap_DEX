@@ -255,7 +255,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/EelswapERC20.sol": "EelswapERC20"
+			"contracts/Test1.sol": "Test1"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -266,11 +266,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/EelswapERC20.sol": {
-			"keccak256": "0xc11ad861acc8e6c8e2e9cda62a650affd8ec0d9f9097c4bf5691a1ed627d89d8",
+		"contracts/Test1.sol": {
+			"keccak256": "0xffabc4b2ad80681a2caeedf6fa2c687b7a8dfd5e1411ae7c2da58d81afe0c8ef",
 			"urls": [
-				"bzz-raw://2391c5ea3a9ed51234d337f649848796cde3a996c695e18fd7ba0d391f86127c",
-				"dweb:/ipfs/QmRF9kyTQHf8nMt8A6QY1HeZi3e6ZjGwJVdtXjU2ELegrZ"
+				"bzz-raw://f298268e592e0a174d0a49540153b023ec9b3ce099cea098e77e6cc6d3a87217",
+				"dweb:/ipfs/QmXjmMDGBwFU37B3gqmjX7igMmA657Qc6Q7hJS8uu9YkJk"
 			]
 		},
 		"contracts/interfaces/IEelswapERC20.sol": {

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.5.17+commit.d19bba13"
+		"version": "0.5.16+commit.9c3226ce"
 	},
 	"language": "Solidity",
 	"output": {
@@ -40,37 +40,6 @@
 					}
 				],
 				"name": "PairCreated",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "token0",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "token1",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "pair",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "airCreated",
 				"type": "event"
 			},
 			{
@@ -173,7 +142,7 @@
 		"compilationTarget": {
 			"contracts/EelswapFactory.sol": "EelswapFactory"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "constantinople",
 		"libraries": {},
 		"optimizer": {
 			"enabled": false,
@@ -182,11 +151,39 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/EelswapFactory.sol": {
-			"keccak256": "0xd1fce605812807fff27f12c7be7bb0024cf66901d04e6192f4f6ca63f9ac31e2",
+		"contracts/EelswapERC20.sol": {
+			"keccak256": "0xc11ad861acc8e6c8e2e9cda62a650affd8ec0d9f9097c4bf5691a1ed627d89d8",
 			"urls": [
-				"bzz-raw://becd358e475cc8272597d8b0e004eb92ed1cec1613a2c5e3b2f74e73c609398f",
-				"dweb:/ipfs/QmWd47NqqWNHBPSiqhRhbTiaQdYf1YXiaU971imj23Nf5M"
+				"bzz-raw://2391c5ea3a9ed51234d337f649848796cde3a996c695e18fd7ba0d391f86127c",
+				"dweb:/ipfs/QmRF9kyTQHf8nMt8A6QY1HeZi3e6ZjGwJVdtXjU2ELegrZ"
+			]
+		},
+		"contracts/EelswapFactory.sol": {
+			"keccak256": "0x7c858653126dd17032324d76320d895900025246d8006e4a2ab2a130b9da6cb6",
+			"urls": [
+				"bzz-raw://5058886e08afcb7141dca3efb157dead439e628955176090c91118e69ceb7f05",
+				"dweb:/ipfs/QmbfHpdwsYCrkBsDNSu6oZoirMmc659Wy9jNF5ASf6Z6q6"
+			]
+		},
+		"contracts/EelswapPair.sol": {
+			"keccak256": "0x52fa093fd48fc507ae74da38e971d1807c50c0a9afd85bba5f5101db354f775b",
+			"urls": [
+				"bzz-raw://c0f1a06e27cfc5ce4fea83ca4bf705432fef98ce536d134c83ace0ef21a2dbad",
+				"dweb:/ipfs/QmbdAtyfNam6Z9mhiEXmNRzyLdpzVKjBgUYM5PsZWYwwjE"
+			]
+		},
+		"contracts/interfaces/IERC20.sol": {
+			"keccak256": "0x6b1e8cbabae924ffc8fcba2f2037eb643ef41a73dab8adf0ee421a1d4f4605ae",
+			"urls": [
+				"bzz-raw://5530951ece5a10cc837984e08248f292989e0b2a9f0102ca22bc8df9fd2e4eb2",
+				"dweb:/ipfs/QmdBwxSEoR9vaPQWMba6ZaLMrrazj8v7gfrq6ojMjvWPHk"
+			]
+		},
+		"contracts/interfaces/IEelswapERC20.sol": {
+			"keccak256": "0x95387e562a1c1863897083880bbbd0e1c630080a02d68b57db04f6147742eaba",
+			"urls": [
+				"bzz-raw://cede65aabca1eb44990729d9c6af3922d89d998dbfae7c2873aca1151a1a5c5b",
+				"dweb:/ipfs/QmPi4Kop1Y2usNBhLKr4BfiJZV8fmDJvghKyvtmJuagKKQ"
 			]
 		},
 		"contracts/interfaces/IEelswapFactory.sol": {
@@ -194,6 +191,27 @@
 			"urls": [
 				"bzz-raw://1e1122ae94005a9e92f09e3bb218ca5c6c5958f66acb63e755ebbcd6cdacdecf",
 				"dweb:/ipfs/QmZsh6HEkaE9Cy3peodgLcZnLueyMa429uQEvJCfNX2Arb"
+			]
+		},
+		"contracts/interfaces/IEelswapPair.sol": {
+			"keccak256": "0x2525ad94dbca619d77e201303cda833a824b5737720e6695d99ae63ecd8cc105",
+			"urls": [
+				"bzz-raw://92a3d7986a6b5cf039d7906c235a5347dd09c24ccd44765ab05e411e725edcfc",
+				"dweb:/ipfs/QmducvrPozKAXfeku7JKkqAatkzvJNRiF7jq4qZFKnZ6mV"
+			]
+		},
+		"contracts/libraries/Math.sol": {
+			"keccak256": "0x18f8e4dd9759e1a37b141aca96271ff46490867bc8d72b5567781fbe742690ba",
+			"urls": [
+				"bzz-raw://29c23465ae797046ede835fafde1c5011982cb050ff89aec9873799050021cd8",
+				"dweb:/ipfs/QmboXsEeAtNvzmgdG7jZSxaSLkJoNueMdRWbzGVfViZRjz"
+			]
+		},
+		"contracts/libraries/SafeMath.sol": {
+			"keccak256": "0xf5ff2ba290aa95920f62a050091d4b73eca8fc1fce353a78d47e7074ca104848",
+			"urls": [
+				"bzz-raw://30561471fa5bea2d80bbd81b13f4a91769ef370ad49580e2bf5515b8a89e80ea",
+				"dweb:/ipfs/QmT69PNHRHJAN5JwBPQoZkAByAy3Nq6chEwHV8cDxthUFD"
 			]
 		}
 	},

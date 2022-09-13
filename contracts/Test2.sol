@@ -4,11 +4,11 @@ pragma solidity ^0.5.16;
 import "./interfaces/IEelswapERC20.sol";
 import "./libraries/SafeMath.sol";
 
-contract EelswapERC20 is IEelswapERC20{
+contract Test2 is IEelswapERC20{
     using SafeMath for uint;
 
-    string public constant name = 'Eelswap V2';
-    string public constant symbol = 'EEL-V2';
+    string public constant name = 'Test2';
+    string public constant symbol = 'tst2';
     uint8 public constant decimals = 18;
     uint public totalSupply;
 

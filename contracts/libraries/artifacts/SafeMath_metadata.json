@@ -14,7 +14,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/libraries/Math.sol": "Math"
+			"contracts/libraries/SafeMath.sol": "SafeMath"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -25,11 +25,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/libraries/Math.sol": {
-			"keccak256": "0x18f8e4dd9759e1a37b141aca96271ff46490867bc8d72b5567781fbe742690ba",
+		"contracts/libraries/SafeMath.sol": {
+			"keccak256": "0xf5ff2ba290aa95920f62a050091d4b73eca8fc1fce353a78d47e7074ca104848",
 			"urls": [
-				"bzz-raw://29c23465ae797046ede835fafde1c5011982cb050ff89aec9873799050021cd8",
-				"dweb:/ipfs/QmboXsEeAtNvzmgdG7jZSxaSLkJoNueMdRWbzGVfViZRjz"
+				"bzz-raw://30561471fa5bea2d80bbd81b13f4a91769ef370ad49580e2bf5515b8a89e80ea",
+				"dweb:/ipfs/QmT69PNHRHJAN5JwBPQoZkAByAy3Nq6chEwHV8cDxthUFD"
 			]
 		}
 	},
