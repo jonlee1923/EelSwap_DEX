@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.5.16+commit.9c3226ce"
+		"version": "0.5.17+commit.d19bba13"
 	},
 	"language": "Solidity",
 	"output": {
@@ -142,7 +142,7 @@
 		"compilationTarget": {
 			"contracts/EelswapFactory.sol": "EelswapFactory"
 		},
-		"evmVersion": "constantinople",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"optimizer": {
 			"enabled": false,

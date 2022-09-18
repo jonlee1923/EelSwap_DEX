@@ -81320,6 +81320,15 @@
 											{
 												"externalReferences": [
 													{
+														"pair": {
+															"declaration": 302,
+															"isOffset": false,
+															"isSlot": false,
+															"src": "1558:4:1",
+															"valueSize": 1
+														}
+													},
+													{
 														"bytecode": {
 															"declaration": 349,
 															"isOffset": false,
@@ -81343,15 +81352,6 @@
 															"isOffset": false,
 															"isSlot": false,
 															"src": "1613:4:1",
-															"valueSize": 1
-														}
-													},
-													{
-														"pair": {
-															"declaration": 302,
-															"isOffset": false,
-															"isSlot": false,
-															"src": "1558:4:1",
 															"valueSize": 1
 														}
 													}

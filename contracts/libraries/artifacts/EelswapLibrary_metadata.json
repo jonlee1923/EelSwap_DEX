@@ -1,0 +1,51 @@
+{
+	"compiler": {
+		"version": "0.5.17+commit.d19bba13"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/libraries/EelswapLibrary.sol": "EelswapLibrary"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IEelswapPair.sol": {
+			"keccak256": "0x2525ad94dbca619d77e201303cda833a824b5737720e6695d99ae63ecd8cc105",
+			"urls": [
+				"bzz-raw://92a3d7986a6b5cf039d7906c235a5347dd09c24ccd44765ab05e411e725edcfc",
+				"dweb:/ipfs/QmducvrPozKAXfeku7JKkqAatkzvJNRiF7jq4qZFKnZ6mV"
+			]
+		},
+		"contracts/libraries/EelswapLibrary.sol": {
+			"keccak256": "0xb9403f64278cf064e9e71fc4b0d261728c47bc293896a3db7d26fcd78bbcab40",
+			"urls": [
+				"bzz-raw://18beb65035c6e8a8ac1adc9232335110f97edb3123fbd9d923ae46f66f3ef6e1",
+				"dweb:/ipfs/QmbKzSGip3aVsBQ3kXEoxXM4Su74BQbEmFfqFQXFBcpAUY"
+			]
+		},
+		"contracts/libraries/SafeMath.sol": {
+			"keccak256": "0xf5ff2ba290aa95920f62a050091d4b73eca8fc1fce353a78d47e7074ca104848",
+			"urls": [
+				"bzz-raw://30561471fa5bea2d80bbd81b13f4a91769ef370ad49580e2bf5515b8a89e80ea",
+				"dweb:/ipfs/QmT69PNHRHJAN5JwBPQoZkAByAy3Nq6chEwHV8cDxthUFD"
+			]
+		}
+	},
+	"version": 1
+}
